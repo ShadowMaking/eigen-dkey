@@ -1,0 +1,28 @@
+@import './styles/var.scss';
+
+
+.test {
+    color: red;
+    @include ellipsis
+}
+
+body {
+	width: 357px;
+	height: 600px;
+    border: 1px solid #dfdfdf;
+}
+$primary-color: #3467E6;
+.ant-btn {
+	height: 42px;
+	border-radius: 21px;
+	line-height: 42px;
+	padding: 0 60px;
+}
+.button-primary {
+  background-color: $primary-color;
+  color: #fff;
+}
+.button-primary:hover {
+  background-color: $primary-color;
+  color: #fff;
+}
