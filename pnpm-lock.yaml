@@ -25,6 +25,7 @@ specifiers:
   swc-loader: ^0.2.3
   ts-import-plugin: ^2.0.0
   typescript: ^4.8.4
+  url-loader: ^4.1.1
   webpack: ^5.74.0
   webpack-cli: ^4.10.0
   webpack-dev-server: ^4.11.1
@@ -56,6 +57,7 @@ devDependencies:
   swc-loader: 0.2.3_@swc+core@1.3.14+webpack@5.74.0
   ts-import-plugin: 2.0.0_typescript@4.8.4
   typescript: 4.8.4
+  url-loader: 4.1.1_webpack@5.74.0
   webpack: 5.74.0_d9841bfb61c357e71c12ad60a1849b04
   webpack-cli: 4.10.0_ab58687d37ee52acb975995ff60cbd8a
   webpack-dev-server: 4.11.1_ed7de2690da194b35567e1e94055cb2c
@@ -4480,6 +4482,15 @@ packages:
       json5: 1.0.1
     dev: true
 
+  /loader-utils/2.0.4:
+    resolution: {integrity: sha512-xXqpXoINfFhgua9xiqD8fPFHgkoq1mmmpE92WlDbm9rNRd/EbRb+Gqf908T2DMfuHjjJlksiK2RbHVOdD/MqSw==}
+    engines: {node: '>=8.9.0'}
+    dependencies:
+      big.js: 5.2.2
+      emojis-list: 3.0.0
+      json5: 2.2.1
+    dev: true
+
   /locate-path/5.0.0:
     resolution: {integrity: sha512-t7hw9pI+WvuwNJXwk5zVHpyhIqzg2qTlklJOf0mVxGSbe3Fp2VieZcduNYjaLDoy6p9uGpQEGWG87WpMKlNq8g==}
     engines: {node: '>=8'}
@@ -7058,6 +7069,22 @@ packages:
   /urix/0.1.0:
     resolution: {integrity: sha512-Am1ousAhSLBeB9cG/7k7r2R0zj50uDRlZHPGbazid5s9rlF1F/QKYObEKSIunSjIOkJZqwRRLpvewjEkM7pSqg==}
     deprecated: Please see https://github.com/lydell/urix#deprecated
+    dev: true
+
+  /url-loader/4.1.1_webpack@5.74.0:
+    resolution: {integrity: sha512-3BTV812+AVHHOJQO8O5MkWgZ5aosP7GnROJwvzLS9hWDj00lZ6Z0wNak423Lp9PBZN05N+Jk/N5Si8jRAlGyWA==}
+    engines: {node: '>= 10.13.0'}
+    peerDependencies:
+      file-loader: '*'
+      webpack: ^4.0.0 || ^5.0.0
+    peerDependenciesMeta:
+      file-loader:
+        optional: true
+    dependencies:
+      loader-utils: 2.0.4
+      mime-types: 2.1.35
+      schema-utils: 3.1.1
+      webpack: 5.74.0_d9841bfb61c357e71c12ad60a1849b04
     dev: true
 
   /use/3.1.1:
