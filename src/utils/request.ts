@@ -23,9 +23,17 @@ class Request {
         })
     }
 
-    public request(config: AxiosRequestConfig) {
+    public request = (config: AxiosRequestConfig) => {
         return this.instance.request(config)
     }
 }
 
-export default Request
+
+const config: AxiosRequestConfig = {
+    baseURL: 'https://dkey.eigen.cash',
+    timeout: 30000
+}
+
+const request = new Request(config)
+
+export default request.request

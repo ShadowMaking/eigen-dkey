@@ -1,14 +1,23 @@
 import * as React from 'react'
 import './index.scss'
 import EigenIcon from '@assets/images/logo.png'
+import request from '../../../utils/request'
 
 function Home() {
 
 
 
 
- const googleLogin = async () => {
-    
+ const googleLogin = () => {
+    request({
+        url: `/api/auth/google/url`,
+        method: 'get',
+      }).then( (uri) => {
+          console.log('1234 res', uri)
+        //   window.location.href = uri
+      }).catch( err => {
+          console.error(err)
+      })
  }
 
 
