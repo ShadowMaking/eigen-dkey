@@ -1,0 +1,28 @@
+.container {
+    .header {
+        display: flex;
+        justify-content: space-between;
+        .desc {
+            font-size: 28px;
+            display: block;
+            margin-top: 20px;
+        }
+    }
+    .content {
+        .backTip {  
+            text-align: center;
+            display: block;
+            margin-top: 20px;
+            color: rgba(121, 116, 116, 1);
+            font-size: 20px;
+            font-family: SourceHanSansSC-regular;
+        }
+        .inputName {
+
+        } 
+    }
+    .footer {
+        text-align: center;
+        margin-top: 260px;
+    }
+}

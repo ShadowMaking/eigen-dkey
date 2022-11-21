@@ -3,6 +3,7 @@ import Loadable from 'react-loadable'
 import { HashRouter as Router, Route, Routes, Navigate } from 'react-router-dom'
 // import Home from './pages/Home'
 // import Page from './pages/Page'
+import 'antd/dist/antd.less';
 
 function Loading() {
     return <div>Loading...</div>
@@ -13,8 +14,8 @@ const Home = Loadable({
     loading: Loading
 })
 
-const Page = Loadable({
-    loader: () => import(/* webpackChunkName: "page" */ './pages/Page'),
+const Create = Loadable({
+    loader: () => import(/* webpackChunkName: "page" */ './pages/Create'),
     loading: Loading
 })
 
@@ -25,7 +26,7 @@ function App() {
             <Router>
                 <Routes>
                     <Route  path="/" element={<Home/>}/>
-                    <Route  path="/page" element={<Page/>}/>
+                    <Route  path="/create" element={<Create/>}/>
                 </Routes>
             </Router>
         </div>
