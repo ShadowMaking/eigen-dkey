@@ -21,7 +21,7 @@ function Create() {
                 <span className="backTip">Create key shards and back them up</span>
                 <div className="inputName">
                     <span className="inputTip">Set backup name</span>
-                    <Input placeholder="Set backup name" />
+                    <Input placeholder="Set backup name"  className="input"/>
                 </div>
 
             </div>
