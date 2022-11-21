@@ -10,4 +10,7 @@ module.exports = merge(common, {
           directory: path.join(__dirname, '../dist')
       }
   },
+  performance: {
+    hints: false,
+  }
 });
