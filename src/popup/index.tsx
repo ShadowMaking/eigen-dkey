@@ -19,6 +19,10 @@ const Create = Loadable({
     loading: Loading
 })
 
+const Account= Loadable({
+    loader: () => import(/* webpackChunkName: "account" */ './pages/Account'),
+    loading: Loading
+})
 
 function App() {
     return(
@@ -27,6 +31,7 @@ function App() {
                 <Routes>
                     <Route  path="/" element={<Home/>}/>
                     <Route  path="/create" element={<Create/>}/>
+                    <Route  path="/account" element={<Account/>}/>
                 </Routes>
             </Router>
         </div>
