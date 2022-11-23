@@ -11,6 +11,10 @@ function Account() {
 
     }
 
+    const handleBackClick = () => {
+        window.location.hash = '#/create'
+    }
+
     return (
         <div className="container">
             <div className="header">
@@ -19,14 +23,24 @@ function Account() {
                 <img src={User} alt=""/>
             </div>
             <div className="content">
-                <div className="back">Account</div>
+                <div className="back" onClick={handleBackClick}>Account</div>
                 <div className="detail">
                     <span className="myAccount">My Account</span>
-                    <div className="accountDetail">Account #2</div>
+                    <div className="accountDetail">
+                        <div className="iconArea"></div>
+                        <div className="detailArea">
+                            <span className="title">Account</span>
+                            <span className="mail">xxx@gmail.com</span>
+                        </div>
+                    </div>
+                    <div className="adressArea">
+                        <span className="adress">0xabacd1234</span>
+                        <span className="copyIcon"></span>
+                    </div>
                 </div>
             </div>
             <div className="footer">
-                <Button type="primary"  onClick={handleBtnClick}>
+                <Button type="primary"  onClick={handleBtnClick} className="btn">
                     Exit
                 </Button>
             </div>
