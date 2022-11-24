@@ -5,15 +5,14 @@ import User from '@assets/images/user_icon.png'
 import './index.scss'
 import { Input, Button, Progress, Alert } from 'antd';
 import { mockKeyGen } from '@/mock';
-import { keyGenMap,  signMap } from '@/common/constants/constans'
+import { signMap } from '@/common/constants/constans'
 
-function Create() {
+function Sign() {
 
     const [keyName, setKeyname] = useState('')
     const [btnDisable, setBtnEnable] = useState(false)
     const [done, setDone] = useState(false)
     const [round, setRound] = useState<number>(0)
-    const [showShards, setShowShards] = useState(false)
 
     const handleInputChange = (e: any) => {
         setKeyname(e.target.value)
@@ -21,20 +20,15 @@ function Create() {
     }
 
     const handleBtnClick = () => {
-        if (!showShards && round === 0) {
             setBtnEnable(true)
-            genKey()
-        } else {
-            window.location.hash = '/sign'
-        }
-
+            sign()
     }
 
     const handleSignBtnClick = () => {
 
     }
 
-    const genKey = async () => {
+    const sign = async () => {
         let res1 = await mockKeyGen(1)
         console.log('xll', res1);
         setRound(1)
@@ -51,9 +45,6 @@ function Create() {
         // console.log('xll', res5);
         // setPercent(100)
         setDone(true)
-        setTimeout(() => {
-            setShowShards(true)
-        }, 1000)
     }
 
 
@@ -70,41 +61,33 @@ function Create() {
                 <Tip text={text}/>
                 { !btnDisable  ?
                 (<div className="start">
-                    <span className="backTip">Create key shards and back them up</span>
+                    <span className="backTip">Please enter the string to sign</span>
                     <div className="inputName">
-                        <span className="inputTip">Set backup name</span>
-                        <Input value={keyName} onChange={handleInputChange} placeholder="Set backup name"  className="input"/>
+                        <Input value={keyName} onChange={handleInputChange}  className="input"/>
                     </div>                    
                 </div>)
-                : !showShards ?
+                : 
                 (<div className="progress">
                     <Progress percent={round*20} strokeWidth={25}/>
-                    { !done && <div className="roundTips">{keyGenMap[round]}</div> }
-                </div>) : null } 
+                    { !done && <div className="roundTips">{signMap[round]}</div> }
+                </div>)  } 
                 <div className="success">
                 { done &&
                     <Alert
                         message="Success Text"
-                        description="Congratulations on the successful creation and backup of the key 
-                        partition!"
+                        description="Recover Address：0xabcd....1234"
                         type="success"
                         closable
                     /> }
                 </div> 
-                 { showShards && <div className="showShards">
-                    <span className="tittle">Stored Key Shards</span>
-                    <div className="drive">
-                        Google Drive
-                    </div>
-                </div> }
             </div>
             <div className="footer">
-               <Button type="primary" disabled={showShards ? false : btnDisable} onClick={handleBtnClick}>
-                    {  showShards ? 'Sign' : round > 0 ? 'Creating' : 'Create' }
+               <Button type="primary" disabled={btnDisable} onClick={handleBtnClick}>
+                    Sign
                 </Button> 
             </div>
         </div>
     )
 } 
 
-export default Create
+export default Sign

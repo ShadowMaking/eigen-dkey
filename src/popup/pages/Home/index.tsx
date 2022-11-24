@@ -1,7 +1,7 @@
 import * as React from 'react'
 import './index.scss'
 import EigenIcon from '@assets/images/logo.png'
-import request from '../../../utils/request'
+import request from '@/common/utils/request'
 
 function Home() {
 
@@ -20,6 +20,9 @@ function Home() {
       })
  }
 
+    const handleClick = () => {
+        window.location.hash = '/create'
+    }
 
     return (
         <div className="container">
@@ -31,6 +34,9 @@ function Home() {
             <div className="login" onClick={googleLogin}>
               <i className="login-icon logo-google"></i>
               <span>Google Account</span>
+            </div>
+            <div onClick={handleClick}>
+                createPage
             </div>
         </div>
     )
