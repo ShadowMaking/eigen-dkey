@@ -30,7 +30,8 @@ class Request {
 
 
 const config: AxiosRequestConfig = {
-    baseURL: 'https://dkey.eigen.cash',
+    // baseURL: 'https://dkey.eigen.cash',
+    baseURL: '43.133.35.136:3000',
     timeout: 30000
 }
 
