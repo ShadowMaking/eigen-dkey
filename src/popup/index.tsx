@@ -1,9 +1,9 @@
 import * as React from 'react'
 import Loadable from 'react-loadable'
-import { HashRouter as Router, Route, Routes, Navigate } from 'react-router-dom'
+import { HashRouter, BrowserRouter, Route, Routes, Navigate, Link } from 'react-router-dom'
 // import Home from './pages/Home'
 // import Page from './pages/Page'
-import 'antd/dist/antd.less';
+import 'antd/dist/antd.less'; 
 
 function Loading() {
     return <div>Loading...</div>
@@ -32,14 +32,27 @@ const Sign = Loadable({
 function App() {
     return(
         <div>
-            <Router>
+         
+
+            {/* <BrowserRouter>
+            <Link to="/create">create</Link>
+            <Link to="/account">account</Link>
+            <Link to="/sign">sign</Link>
                 <Routes>
-                    <Route  path="/" element={<Home/>}/>
+                <Route  path="/" element={<Home/>}/>
                     <Route  path="/create" element={<Create/>}/>
                     <Route  path="/account" element={<Account/>}/>
                     <Route  path="/sign" element={<Sign/>}/>
                 </Routes>
-            </Router>
+            </BrowserRouter> */}
+            <HashRouter>
+                <Routes>
+                <Route  path="/" element={<Home/>}/>
+                    <Route  path="/create" element={<Create/>}/>
+                    <Route  path="/account" element={<Account/>}/>
+                    <Route  path="/sign" element={<Sign/>}/>
+                </Routes>
+            </HashRouter>
         </div>
     )
 }

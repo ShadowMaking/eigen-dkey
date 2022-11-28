@@ -8,7 +8,9 @@ module.exports = merge(common, {
   devServer: {
       static: {
           directory: path.join(__dirname, '../dist')
-      }
+      },
+      host: 'dev-deliver-secret.eigen.com',
+      port: 8090,
   },
   performance: {
     hints: false,

@@ -14,7 +14,8 @@ function Home() {
         method: 'get',
       }).then( (uri) => {
           console.log('1234 res', uri)
-        //   window.location.href = uri
+          debugger
+          window.location.href = uri
       }).catch( err => {
           console.error(err)
       })
