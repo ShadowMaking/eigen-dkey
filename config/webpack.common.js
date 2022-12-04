@@ -28,6 +28,10 @@ module.exports = {
         }
     },
     optimization,
+    experiments: {
+        asyncWebAssembly: true,
+        syncWebAssembly: true
+    }
     // externals: {
     //     'react': 'window.React',
     //     'react-dom': 'window.ReactDOM'
