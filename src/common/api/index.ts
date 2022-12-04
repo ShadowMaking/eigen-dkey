@@ -16,8 +16,15 @@ export const sign = (data) => {
     })
 }
 
-export const getAdress = (userId: string, shardName: string) => {
-    return request({
-        url: `/tss?user_id=${userId}&name=${shardName}`
-    })
+export const getAddress = (userId: number, shardName?: string) => {
+    if (!shardName) {
+        return request({
+            url: `/tss?user_id=${userId}`
+        })
+    } else {
+        return request({
+            url: `/tss?user_id=${userId}&name=${shardName}`
+        })
+    }
+
 }

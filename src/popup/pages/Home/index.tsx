@@ -10,11 +10,10 @@ function Home() {
 
  const googleLogin = () => {
     request({
-        url: `/api/auth/google/url`,
+        url: `/auth/google/url`,
         method: 'get',
       }).then( (uri) => {
           console.log('1234 res', uri)
-          debugger
           window.location.href = uri
       }).catch( err => {
           console.error(err)
@@ -36,9 +35,9 @@ function Home() {
               <i className="login-icon logo-google"></i>
               <span>Google Account</span>
             </div>
-            <div onClick={handleClick}>
+            {/* <div onClick={handleClick}>
                 createPage
-            </div>
+            </div> */}
         </div>
     )
 } 
