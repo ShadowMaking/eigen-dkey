@@ -132,15 +132,15 @@ function Create() {
         let context
         const delay = 50
         const digest = utils.keccak256(utils.toUtf8Bytes("EigenTest")).slice(2)
-        const user_id = getFromStorage('user_id')
+        const user_id = Number(getFromStorage('user_id'))
         const keyAddr = 'dde95c67559b441e4356274e59c6f3b03d4a0a05'
         let signResInit = await sign({
             digest: digest,
             // user_address: publicKeyRef.current,
             user_address: keyAddr,
             user_id,
-            t: 1,
-            n: 2,
+            thrshold: 1,
+            share: 2,
         })
         setTimeout(() => {
             console.log('setTimeout');
