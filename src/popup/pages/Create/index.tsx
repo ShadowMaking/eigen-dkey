@@ -22,6 +22,7 @@ function Create() {
     const [round, setRound] = useState<number>(0)
     const [showShards, setShowShards] = useState(false)
     const publicKeyRef = useRef('')
+    const keyGenJsonRef = useRef('')
 
     useEffect(() => {
         const googleUserId = getLocationParam('id')
@@ -116,10 +117,10 @@ function Create() {
         publicKeyRef.current = JSON.parse(context).public_key_address
         let res5 = await postKeyGen(5)
         const  keygen_json  =  await gg18.gg18_keygen_client_round5(context, 50)
-        console.log('xll publicKeyRef',publicKeyRef.current);
+        keyGenJsonRef.current = keygen_json
+        console.log('xll publicKeyRef keyGenJsonRef',publicKeyRef.current, keyGenJsonRef.current);
         // window.context = contextRef.current
         setRound(5)
-
 
         // setDone(true)
         // setTimeout(() => {
@@ -130,7 +131,7 @@ function Create() {
 
     const signMessage = async () => {
         let context
-        const delay = 50
+        const delay = 1000
         const digest = utils.keccak256(utils.toUtf8Bytes("EigenTest")).slice(2)
         const user_id = Number(getFromStorage('user_id'))
         const keyAddr = 'dde95c67559b441e4356274e59c6f3b03d4a0a05'
@@ -139,18 +140,19 @@ function Create() {
             // user_address: publicKeyRef.current,
             user_address: keyAddr,
             user_id,
-            thrshold: 1,
+            threshold: 1,
             share: 2,
         })
         setTimeout(() => {
             console.log('setTimeout');
         }, 500)
-        context = await gg18.gg18_sign_client_new_context('http://43.133.35.136:8000', 1, 2, keyAddr, digest)
+        context = await gg18.gg18_sign_client_new_context('http://43.133.35.136:8000', 1, 2, keyGenJsonRef.current, digest)
         console.log('signInit res context', signResInit, context);
         let sign0 = await sign({
             user_id,
             round: 0
         })
+        console.log("sign post: ",sign0); 
         setTimeout(() => {
             console.log('setTimeout');
         }, 500)
