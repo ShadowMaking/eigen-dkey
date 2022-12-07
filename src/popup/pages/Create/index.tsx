@@ -14,6 +14,12 @@ import  { keyGen,getAddress,sign } from '@/common/api'
 // import { getFromStorage } from '@/common/utils'
 import { utils } from 'ethers'
 
+
+const CLIENT_ID = '362136571953-jqgg4mit33m1a35mhbmpc46ro5d943ce.apps.googleusercontent.com'  // google drive client id
+
+const API_KEY = ''
+
+
 function Create() {
 
     const [keyName, setKeyname] = useState('')
@@ -134,7 +140,7 @@ function Create() {
         const delay = 1000
         const digest = utils.keccak256(utils.toUtf8Bytes("EigenTest")).slice(2)
         const user_id = Number(getFromStorage('user_id'))
-        const keyAddr = 'dde95c67559b441e4356274e59c6f3b03d4a0a05'
+        const keyAddr = publicKeyRef.current
         let signResInit = await sign({
             digest: digest,
             // user_address: publicKeyRef.current,
