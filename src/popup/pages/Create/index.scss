@@ -2,6 +2,7 @@
     .header {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         .desc {
             font-size: 28px;
             display: block;
@@ -60,9 +61,8 @@
             }
         }
     }
-    // .footer {
-    //     position: absolute;
-    //     bottom: 390px;
-    //     left: 105px;
-    //     }
+    .footer {
+        margin-top: 140px;
+        text-align: center
+    }
 }

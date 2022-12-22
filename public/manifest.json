@@ -47,6 +47,9 @@
           ]
         }
       ],
+      "content_security_policy": {
+
+      },
       "action": {
         "default_popup": "index.html",
         "default_icon": {

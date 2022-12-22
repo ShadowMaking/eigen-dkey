@@ -13,8 +13,7 @@ function Home() {
         url: `/auth/google/url`,
         method: 'get',
       }).then( (uri) => {
-          console.log('1234 res', uri)
-          window.location.href = uri
+          (window as any).location.href = uri
       }).catch( err => {
           console.error(err)
       })
